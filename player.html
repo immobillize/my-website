@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Player</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1 id="video-title">Loading...</h1>
+    <a href="index.html" class="back-button">Back to Home</a>
+  </header>
+
+  <main id="video-container">
+    <!-- Video akan dimuat di sini -->
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Film Showcase. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Fungsi untuk mendapatkan parameter dari URL
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    // Ambil parameter dari URL
+    const title = getQueryParam('title');
+    const source = getQueryParam('source');
+
+    // Set judul video
+    const videoTitle = document.getElementById('video-title');
+    videoTitle.textContent = title || 'Unknown Title';
+
+    // Render video
+    const videoContainer = document.getElementById('video-container');
+    if (source) {
+      let videoElement;
+
+      if (source.includes("youtube.com")) {
+        // YouTube Video
+        videoElement = document.createElement('iframe');
+        videoElement.src = source + '?autoplay=1';
+        videoElement.width = '100%';
+        videoElement.height = '400';
+        videoElement.frameBorder = '0';
+        videoElement.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        videoElement.allowFullscreen = true;
+      } else {
+        // Video Lokal
+        videoElement = document.createElement('video');
+        videoElement.src = source;
+        videoElement.controls = true;
+        videoElement.autoplay = true;
+        videoElement.style.width = '100%';
+        videoElement.style.borderRadius = '5px';
+      }
+
+      videoContainer.appendChild(videoElement);
+    } else {
+      videoContainer.innerHTML = '<p>Video source not found</p>';
+    }
+  </script>
+</body>
+
+</html>

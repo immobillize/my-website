@@ -1,0 +1,158 @@
+/* Reset dasar */
+* {
+
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1e1e1e;
+  /* Latar belakang gelap */
+  flex-direction: column;
+  color: #fff;
+  /* Teks putih */
+  line-height: 1.6;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.search-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.search-container input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-container button {
+  padding: 10px 15px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background-color: #0056b3;
+}
+
+header {
+  background-color: #f39c12;
+  /* Warna header oranye */
+  padding: 20px;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Menempatkan konten ke tengah */
+    text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+/* Daftar Film */
+.container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  flex-wrap: wrap;
+}
+
+/* Pemutar Video */
+#video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  /* Max-width untuk memastikan responsif */
+  padding: 20px;
+  margin: 0 auto;
+  background-color: #2c2c2c;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#video-container iframe,
+#video-container video {
+  width: 100%;
+  /* Ukuran video fleksibel */
+  height: auto;
+  /* Proporsional */
+  max-width: 1280px;
+  /* Batas maksimal lebar */
+  max-height: 720px;
+  /* Batas maksimal tinggi */
+  border-radius: 5px;
+}
+
+.movie-item {
+  background-color: #2c2c2c;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
+  max-width: 1280px;
+  overflow: hidden;
+  flex-grow: 1;
+  /* Batas maksimal untuk container thumbnail */
+}
+
+.movie-item:hover {
+  transform: scale(1.05);
+}
+
+.movie-item h2 {
+  margin: 10px 0;
+  font-size: 1.2rem;
+  color: #f39c12;
+}
+
+/* Gaya Thumbnail */
+.movie-item img {
+  width: 100%;
+  max-width: 1280px;
+  /* Thumbnail tidak akan melebihi ukuran ini */
+  height: auto;
+  /* Proporsi gambar tetap */
+  aspect-ratio: 16 / 9;
+  /* Pastikan rasio 1280x720 (16:9) */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.movie-item img:hover {
+  transform: scale(1.1);
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+  .movie-item img {
+    width: 100%;
+    /* Buat thumbnail memenuhi layar lebih kecil */
+  }
+}
+
+footer {
+  background-color: #f39c12;
+  color: black;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
